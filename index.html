@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Calculator</title>
+  </head>
+  <body>
+
+    <div class="socials p-1">
+        <a href="https://facebook.com/denz.zeng" <i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com/ohitsmedenzeng" <i class="fa-brands fa-twitter"></i></a>
+  </div>
+
+      <div class="grid grid-cols-1 gap-10 justify-items-center content-center items-center h-screen"
+      <div class="bg-contain bg-center" style="background-image: url('giff.gif')"</div>
+        
+      <div class="">
+        <h1 class="text-3xl text-center text-white italic font-bold font-serif">
+          Denzel's Calculator
+        </h1>
+      </div>
+      
+      <div class="box">
+      <div class="grid grid-cols-1 gap-4 bg-pink-300 p-10 rounded-lg">
+        <div class="flex flex-start flex-col">
+          <label class="text-1xl mb-2 font-bold text-gray-700">
+            Enter First Number
+          </label>
+          <input
+            type="text"
+            id="firstNumber"
+            class="bg-white border-2 border-slate-300 p-2 rounded-lg focus:outline-none focus:bg-white focus:border-red-400"
+            placeholder="e.g 12"
+          />
+          <label class="text-1xl mt-5 mb-2 font-bold text-gray-700">
+            Enter Second Number
+          </label>
+          <input
+            type="text"
+            id="secondNumber"
+            class="bg-white border-2 border-slate-300 p-2 rounded-lg focus:outline-none focus:bg-white focus:border-red-400"
+            placeholder="e.g 64"
+          />
+        </div>
+        
+        <div class="button">
+          <button class="bg-purple-500 text-white p-2 rounded-md hover:bg-red-500" onclick="add()">
+            Addition
+          </button>
+          <button class="bg-purple-500 text-white p-2 rounded-md  hover:bg-red-500" onclick="sub()">
+            Subtraction
+          </button>
+          <button class="bg-purple-500 text-white p-2 rounded-md  hover:bg-red-500" onclick="mul()">
+            Multiplication
+          </button>
+          <button class="bg-purple-500 text-white p-2 rounded-md  hover:bg-red-500" onclick="div()">
+            Division
+          </button>
+          <button class="bg-purple-500 text-white p-2 rounded-md  hover:bg-red-500" onclick="mod()">
+            Modulo
+          </button>
+          <button class="bg-purple-500 text-white p-2 rounded-md  hover:bg-red-500" onclick="clr()">
+            Clear
+          </button>
+        </div>
+        
+        <div class="">
+          <h1 class="text-2xl text-center font-bold text-gray-700 inline-block">
+            Result: <span id="result"></span>
+          </h1>
+        </div>
+      </div>
+      </div>
+
+
+
+      <footer class="text-center text-gray-500 font-mono bottom-0 absolute">
+        <p>
+          <a href="https://github.com/denzelali">Denzel Aliwate - 2R1</a>
+        </p>
+      </footer>
+    </div>
+
+  </body>
+  <script>
+    function getValues() {
+      let firstValue = parseInt(document.getElementById("firstNumber").value);
+      let secondValue = parseInt(document.getElementById("secondNumber").value);
+
+      console.log("Simple Calculator with Js and Tailwind CSS");
+
+      if (firstValue && secondValue) {
+        return [firstValue, secondValue];
+      } else {
+        alert("Can't proceed! Please enter a number");
+      }
+    }
+
+    function add() {
+      let [firstValue, secondValue] = getValues();
+      let result = firstValue + secondValue;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function sub() {
+      let [firstValue, secondValue] = getValues();
+      let result = firstValue - secondValue;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function mul() {
+      let [firstValue, secondValue] = getValues();
+      let result = firstValue * secondValue;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function div() {
+      let [firstValue, secondValue] = getValues();
+      let result = firstValue / secondValue;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function mod() {
+      let [firstValue, secondValue] = getValues();
+      let result = firstValue % secondValue;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function clr() {
+      document.getElementById("firstNumber").value = "";
+      document.getElementById("secondNumber").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+  </script>
+</html>
